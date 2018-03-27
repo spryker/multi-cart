@@ -31,7 +31,7 @@ class DeactivateQuotesBeforeQuoteSavePlugin extends AbstractPlugin implements Qu
             return $quoteTransfer;
         }
 
-        $this->getFacade()->unDefaultCustomerQuotes($quoteTransfer->getCustomerReference());
+        $this->getFacade()->unDefaultCustomerQuotes($quoteTransfer->getCustomer()->getCustomerReference());
 
         return $quoteTransfer;
     }
