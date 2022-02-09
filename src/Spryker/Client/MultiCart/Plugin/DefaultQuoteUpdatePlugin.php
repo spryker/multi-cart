@@ -57,7 +57,6 @@ class DefaultQuoteUpdatePlugin extends AbstractPlugin implements QuoteUpdatePlug
         }
         $quoteTransfer = new QuoteTransfer();
         if (count($quoteCollectionTransfer->getQuotes())) {
-            /** @var \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer */
             $quoteTransfer = $quoteCollectionTransfer->getQuotes()->offsetGet(0);
         }
         $quoteTransfer->setIsDefault(true);

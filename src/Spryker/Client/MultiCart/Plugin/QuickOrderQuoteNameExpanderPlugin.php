@@ -28,20 +28,20 @@ class QuickOrderQuoteNameExpanderPlugin extends AbstractPlugin implements Persis
      *
      * @api
      *
-     * @param \Generated\Shared\Transfer\PersistentCartChangeTransfer $persistentCartChangeTransfer
+     * @param \Generated\Shared\Transfer\PersistentCartChangeTransfer $cartChangeTransfer
      * @param array $params
      *
      * @return \Generated\Shared\Transfer\PersistentCartChangeTransfer
      */
-    public function extend(PersistentCartChangeTransfer $persistentCartChangeTransfer, array $params = []): PersistentCartChangeTransfer
+    public function extend(PersistentCartChangeTransfer $cartChangeTransfer, array $params = []): PersistentCartChangeTransfer
     {
         if (!isset($params[static::PARAM_SUBMIT_BUTTON_CREATE_ORDER])) {
-            return $persistentCartChangeTransfer;
+            return $cartChangeTransfer;
         }
 
         $quoteUpdateRequestAttributes = new QuoteUpdateRequestAttributesTransfer();
-        if ($persistentCartChangeTransfer->getQuoteUpdateRequestAttributes()) {
-            $quoteUpdateRequestAttributes = $persistentCartChangeTransfer->getQuoteUpdateRequestAttributes();
+        if ($cartChangeTransfer->getQuoteUpdateRequestAttributes()) {
+            $quoteUpdateRequestAttributes = $cartChangeTransfer->getQuoteUpdateRequestAttributes();
         }
         $quoteUpdateRequestAttributes->setName(
             sprintf(
@@ -49,9 +49,9 @@ class QuickOrderQuoteNameExpanderPlugin extends AbstractPlugin implements Persis
                 $this->getFactory()->getDateTimeService()->formatDateTime(date('Y-m-d H:i:s')),
             ),
         );
-        $persistentCartChangeTransfer->setIdQuote(0)
+        $cartChangeTransfer->setIdQuote(0)
             ->setQuoteUpdateRequestAttributes($quoteUpdateRequestAttributes);
 
-        return $persistentCartChangeTransfer;
+        return $cartChangeTransfer;
     }
 }
