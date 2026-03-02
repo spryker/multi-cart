@@ -41,11 +41,6 @@ class DefaultQuoteUpdatePlugin extends AbstractPlugin implements QuoteUpdatePlug
         return $quoteResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteResponseTransfer $quoteResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function getDefaultQuote(QuoteResponseTransfer $quoteResponseTransfer): QuoteTransfer
     {
         $quoteCollectionTransfer = $quoteResponseTransfer->getCustomerQuotes();
@@ -66,11 +61,6 @@ class DefaultQuoteUpdatePlugin extends AbstractPlugin implements QuoteUpdatePlug
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function updateSessionQuote(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         $sessionQuoteTransfer = $this->getFactory()->getQuoteClient()->getQuote();

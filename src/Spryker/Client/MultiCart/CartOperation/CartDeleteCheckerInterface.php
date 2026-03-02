@@ -9,8 +9,5 @@ namespace Spryker\Client\MultiCart\CartOperation;
 
 interface CartDeleteCheckerInterface
 {
-    /**
-     * @return bool
-     */
     public function isQuoteDeletable(): bool;
 }

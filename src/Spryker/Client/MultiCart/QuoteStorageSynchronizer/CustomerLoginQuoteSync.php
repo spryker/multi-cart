@@ -24,10 +24,6 @@ class CustomerLoginQuoteSync implements CustomerLoginQuoteSyncInterface
      */
     protected $quoteClient;
 
-    /**
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToPersistentCartClientInterface $persistentCartClient
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToQuoteClientInterface $quoteClient
-     */
     public function __construct(
         MultiCartToPersistentCartClientInterface $persistentCartClient,
         MultiCartToQuoteClientInterface $quoteClient

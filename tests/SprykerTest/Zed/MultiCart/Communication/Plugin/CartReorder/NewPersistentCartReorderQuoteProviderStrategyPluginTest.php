@@ -62,9 +62,6 @@ class NewPersistentCartReorderQuoteProviderStrategyPluginTest extends Unit
      */
     protected MultiCartCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testIsApplicableShouldReturnFalseWhenReorderStrategyIsNotNew(): void
     {
         // Act
@@ -77,9 +74,6 @@ class NewPersistentCartReorderQuoteProviderStrategyPluginTest extends Unit
         $this->assertFalse($isApplicable);
     }
 
-    /**
-     * @return void
-     */
     public function testIsApplicableShouldReturnFalseWhenStorageStrategyIsNotDatabase(): void
     {
         // Act
@@ -91,9 +85,6 @@ class NewPersistentCartReorderQuoteProviderStrategyPluginTest extends Unit
         $this->assertFalse($isApplicable);
     }
 
-    /**
-     * @return void
-     */
     public function testIsApplicableShouldReturnTrueWhenStorageStrategyIsDatabaseAndReorderStrategyIsNew(): void
     {
         // Act
@@ -105,9 +96,6 @@ class NewPersistentCartReorderQuoteProviderStrategyPluginTest extends Unit
         $this->assertTrue($isApplicable);
     }
 
-    /**
-     * @return void
-     */
     public function testExecuteShouldThrowExceptionWhenCustomerReferenceNotSet(): void
     {
         // Assert
@@ -118,9 +106,6 @@ class NewPersistentCartReorderQuoteProviderStrategyPluginTest extends Unit
         (new NewPersistentCartReorderQuoteProviderStrategyPlugin())->execute(new CartReorderRequestTransfer());
     }
 
-    /**
-     * @return void
-     */
     public function testExecuteShouldCreateNewCustomerQuote(): void
     {
         // Arrange
@@ -140,11 +125,6 @@ class NewPersistentCartReorderQuoteProviderStrategyPluginTest extends Unit
         $this->assertSame(static::FAKE_QUOTE_NAME, $quoteTransfer->getName());
     }
 
-    /**
-     * @param string $storageStrategy
-     *
-     * @return void
-     */
     protected function mockQuoteFacade(string $storageStrategy): void
     {
         $quoteFacadeMock = $this->getMockBuilder(MultiCartToQuoteFacadeInterface::class)->getMock();

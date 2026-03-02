@@ -29,10 +29,6 @@ class QuoteResponseExpander implements QuoteResponseExpanderInterface
      */
     protected $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToQuoteFacadeInterface $quoteFacade
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         MultiCartToQuoteFacadeInterface $quoteFacade,
         MultiCartToStoreFacadeInterface $storeFacade
@@ -41,11 +37,6 @@ class QuoteResponseExpander implements QuoteResponseExpanderInterface
         $this->storeFacade = $storeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteResponseTransfer $quoteResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function expand(QuoteResponseTransfer $quoteResponseTransfer): QuoteResponseTransfer
     {
         $customerTransfer = $quoteResponseTransfer->getCustomer();
@@ -57,12 +48,6 @@ class QuoteResponseExpander implements QuoteResponseExpanderInterface
         return $quoteResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
-     */
     protected function findCustomerQuotesByStore(CustomerTransfer $customerTransfer, StoreTransfer $storeTransfer): QuoteCollectionTransfer
     {
         $filterTransfer = new FilterTransfer();

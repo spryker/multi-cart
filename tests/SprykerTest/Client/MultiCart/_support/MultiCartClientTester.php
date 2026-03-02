@@ -37,11 +37,6 @@ class MultiCartClientTester extends Actor
      */
     public const SESSION_KEY_QUOTE_COLLECTION = 'SESSION_KEY_QUOTE_COLLECTION';
 
-    /**
-     * @param array $override
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function haveQuote(array $override = []): QuoteTransfer
     {
         return (new QuoteBuilder())

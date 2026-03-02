@@ -9,24 +9,9 @@ namespace Spryker\Client\MultiCart\Dependency\Client;
 
 interface MultiCartToMessengerClientInterface
 {
-    /**
-     * @param string $message
-     *
-     * @return void
-     */
     public function addInfoMessage(string $message): void;
 
-    /**
-     * @param string $message
-     *
-     * @return void
-     */
     public function addErrorMessage(string $message): void;
 
-    /**
-     * @param string $message
-     *
-     * @return void
-     */
     public function addSuccessMessage(string $message): void;
 }

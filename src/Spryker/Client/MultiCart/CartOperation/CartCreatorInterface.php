@@ -12,17 +12,7 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface CartCreatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function createQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function duplicateQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer;
 }

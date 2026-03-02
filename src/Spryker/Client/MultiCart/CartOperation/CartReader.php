@@ -18,19 +18,11 @@ class CartReader implements CartReaderInterface
      */
     protected $multiCartZedStub;
 
-    /**
-     * @param \Spryker\Client\MultiCart\Zed\MultiCartZedStubInterface $multiCartZedStub
-     */
     public function __construct(MultiCartZedStubInterface $multiCartZedStub)
     {
         $this->multiCartZedStub = $multiCartZedStub;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
-     */
     public function getQuoteCollectionByCriteria(QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer): QuoteCollectionTransfer
     {
         return $this->multiCartZedStub->getQuoteCollectionByCriteria($quoteCriteriaFilterTransfer);

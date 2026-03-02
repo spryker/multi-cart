@@ -36,11 +36,6 @@ class MultiCartStorage implements MultiCartStorageInterface
      */
     protected MultiCartToStoreClientInterface $storeClient;
 
-    /**
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToSessionClientInterface $sessionClient
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToStoreClientInterface $storeClient
-     * @param \Spryker\Client\MultiCart\MultiCartConfig $multiCartConfig
-     */
     public function __construct(
         MultiCartToSessionClientInterface $sessionClient,
         MultiCartToStoreClientInterface $storeClient,
@@ -51,11 +46,6 @@ class MultiCartStorage implements MultiCartStorageInterface
         $this->multiCartConfig = $multiCartConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteCollectionTransfer $quoteCollectionTransfer
-     *
-     * @return void
-     */
     public function setQuoteCollection(QuoteCollectionTransfer $quoteCollectionTransfer): void
     {
         $quoteCollectionTransfer = $this->filterQuoteCollectionByAllowedInSessionQuoteFieldsConfiguration($quoteCollectionTransfer);
@@ -63,19 +53,11 @@ class MultiCartStorage implements MultiCartStorageInterface
         $this->sessionClient->set($this->getQuoteCollectionKey(), $quoteCollectionTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
-     */
     public function getQuoteCollection(): QuoteCollectionTransfer
     {
         return $this->sessionClient->get($this->getQuoteCollectionKey(), new QuoteCollectionTransfer());
     }
 
-    /**
-     * @param int $idQuote
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer|null
-     */
     public function findQuoteById(int $idQuote): ?QuoteTransfer
     {
         $quoteCollection = $this->getQuoteCollection();
@@ -88,9 +70,6 @@ class MultiCartStorage implements MultiCartStorageInterface
         return null;
     }
 
-    /**
-     * @return string
-     */
     protected function getQuoteCollectionKey(): string
     {
         return sprintf(
@@ -100,11 +79,6 @@ class MultiCartStorage implements MultiCartStorageInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteCollectionTransfer $quoteCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
-     */
     protected function filterQuoteCollectionByAllowedInSessionQuoteFieldsConfiguration(
         QuoteCollectionTransfer $quoteCollectionTransfer
     ): QuoteCollectionTransfer {

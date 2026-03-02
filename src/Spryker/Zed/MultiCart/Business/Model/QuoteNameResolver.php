@@ -17,19 +17,11 @@ class QuoteNameResolver implements QuoteNameResolverInterface
      */
     protected $multiCartRepository;
 
-    /**
-     * @param \Spryker\Zed\MultiCart\Persistence\MultiCartRepositoryInterface $multiCartRepository
-     */
     public function __construct(MultiCartRepositoryInterface $multiCartRepository)
     {
         $this->multiCartRepository = $multiCartRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return string
-     */
     public function resolveCustomerQuoteName(QuoteTransfer $quoteTransfer): string
     {
         if ($this->multiCartRepository->checkQuoteNameAvailability($quoteTransfer)) {

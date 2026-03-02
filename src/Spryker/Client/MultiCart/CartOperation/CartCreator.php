@@ -42,13 +42,6 @@ class CartCreator implements CartCreatorInterface
      */
     protected $dateTimeService;
 
-    /**
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToPersistentCartClientInterface $persistentCartClient
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToQuoteClientInterface $quoteClient
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToCustomerClientInterface $customerClient
-     * @param \Spryker\Client\MultiCart\Dependency\Service\MultiCartToUtilDateTimeServiceInterface $dateTimeService
-     * @param \Spryker\Client\MultiCart\MultiCartConfig $multiCartConfig
-     */
     public function __construct(
         MultiCartToPersistentCartClientInterface $persistentCartClient,
         MultiCartToQuoteClientInterface $quoteClient,
@@ -63,11 +56,6 @@ class CartCreator implements CartCreatorInterface
         $this->dateTimeService = $dateTimeService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function createQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer
     {
         $quoteTransfer->setIdQuote(null);
@@ -80,11 +68,6 @@ class CartCreator implements CartCreatorInterface
         return $quoteResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function duplicateQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer
     {
         $duplicateQuoteTransfer = (new QuoteTransfer())
@@ -100,11 +83,6 @@ class CartCreator implements CartCreatorInterface
         return $this->persistentCartClient->createQuote($duplicateQuoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return array
-     */
     protected function filterDisallowedQuoteData(QuoteTransfer $quoteTransfer): array
     {
         $data = [];

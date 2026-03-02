@@ -20,17 +20,11 @@ use Spryker\Zed\MultiCart\MultiCartDependencyProvider;
  */
 class MultiCartCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToMessengerFacadeInterface
-     */
     public function getMessengerFacade(): MultiCartToMessengerFacadeInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::FACADE_MESSENGER);
     }
 
-    /**
-     * @return \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToQuoteFacadeInterface
-     */
     public function getQuoteFacade(): MultiCartToQuoteFacadeInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::FACADE_QUOTE);

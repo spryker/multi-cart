@@ -36,25 +36,16 @@ use Spryker\Client\MultiCart\Zed\MultiCartZedStubInterface;
  */
 class MultiCartFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\MultiCart\Zed\MultiCartZedStubInterface
-     */
     public function createMultiCartZedStub(): MultiCartZedStubInterface
     {
         return new MultiCartZedStub($this->getZedRequestClient());
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\MultiCartConfig
-     */
     public function getMultiCartConfig(): MultiCartConfig
     {
         return $this->getConfig();
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Storage\MultiCartStorageInterface
-     */
     public function createMultiCartStorage(): MultiCartStorageInterface
     {
         return new MultiCartStorage(
@@ -64,9 +55,6 @@ class MultiCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\QuoteStorageSynchronizer\CustomerLoginQuoteSyncInterface
-     */
     public function createCustomerLoginQuoteSave(): CustomerLoginQuoteSyncInterface
     {
         return new CustomerLoginQuoteSync(
@@ -75,9 +63,6 @@ class MultiCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\CartOperation\CartUpdaterInterface
-     */
     public function createCartUpdater(): CartUpdaterInterface
     {
         return new CartUpdater(
@@ -89,9 +74,6 @@ class MultiCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\CartOperation\CartCreatorInterface
-     */
     public function createCartCreator(): CartCreatorInterface
     {
         return new CartCreator(
@@ -103,9 +85,6 @@ class MultiCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\CartOperation\CartReaderInterface
-     */
     public function createCartReader(): CartReaderInterface
     {
         return new CartReader(
@@ -113,65 +92,41 @@ class MultiCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Client\MultiCartToQuoteClientInterface
-     */
     public function getQuoteClient(): MultiCartToQuoteClientInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::CLIENT_QUOTE);
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Client\MultiCartToCustomerClientInterface
-     */
     public function getCustomerClient(): MultiCartToCustomerClientInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::CLIENT_CUSTOMER);
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Client\MultiCartToMessengerClientInterface
-     */
     public function getMessengerClient(): MultiCartToMessengerClientInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::CLIENT_MESSENGER);
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Client\MultiCartToSessionClientInterface
-     */
     public function getSessionClient(): MultiCartToSessionClientInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::CLIENT_SESSION);
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Client\MultiCartToZedRequestClientInterface
-     */
     public function getZedRequestClient(): MultiCartToZedRequestClientInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::CLIENT_ZED_REQUEST);
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Client\MultiCartToPersistentCartClientInterface
-     */
     public function getPersistentCartClient(): MultiCartToPersistentCartClientInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::CLIENT_PERSISTENT_CART);
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Service\MultiCartToUtilDateTimeServiceInterface
-     */
     public function getDateTimeService(): MultiCartToUtilDateTimeServiceInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::SERVICE_DATETIME);
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\CartOperation\CartDeleteCheckerInterface
-     */
     public function createCartDeleteChecker(): CartDeleteCheckerInterface
     {
         return new CartDeleteChecker(
@@ -179,9 +134,6 @@ class MultiCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\MultiCart\Dependency\Client\MultiCartToStoreClientInterface
-     */
     public function getStoreClient(): MultiCartToStoreClientInterface
     {
         return $this->getProvidedDependency(MultiCartDependencyProvider::CLIENT_STORE);

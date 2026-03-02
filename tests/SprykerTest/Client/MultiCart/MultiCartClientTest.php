@@ -48,9 +48,6 @@ class MultiCartClientTest extends Unit
      */
     protected MultiCartClientTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -58,9 +55,6 @@ class MultiCartClientTest extends Unit
         $this->tester->setDependency(static::CLIENT_SESSION, $this->getSessionClientMock());
     }
 
-    /**
-     * @return void
-     */
     public function testSetQuoteCollectionShouldNotFilterQuoteDataWhenAllowedFieldsConfigIsEmpty(): void
     {
         // Arrange
@@ -79,9 +73,6 @@ class MultiCartClientTest extends Unit
         $this->assertSame($quoteData, $quoteCollectionTransfer->getQuotes()->getIterator()->current()->toArray());
     }
 
-    /**
-     * @return void
-     */
     public function testSetQuoteCollectionShouldFilterOutAllQuoteDataExceptAllowedFieldsWhenConfiguredFieldIsString(): void
     {
         // Arrange
@@ -102,9 +93,6 @@ class MultiCartClientTest extends Unit
         $this->assertSame(static::QUOTE_NAME, $quoteData[QuoteTransfer::NAME]);
     }
 
-    /**
-     * @return void
-     */
     public function testSetQuoteCollectionShouldFilterOutAllQuoteDataExceptAllowedFieldsWhenConfiguredFieldIsArray(): void
     {
         // Arrange
@@ -133,9 +121,6 @@ class MultiCartClientTest extends Unit
         $this->assertSame(static::ITEM_GROUP_KEY, $itemData[ItemTransfer::GROUP_KEY]);
     }
 
-    /**
-     * @return void
-     */
     public function testSetQuoteCollectionShouldFilterOutAllQuoteDataExceptAllowedFieldsWhenConfiguredFieldIsObject(): void
     {
         // Arrange
@@ -159,9 +144,6 @@ class MultiCartClientTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testSetQuoteCollectionShouldFilterOutAllNestedFieldsExceptAllowedFieldsWhenConfiguredFieldIsObject(): void
     {
         // Arrange

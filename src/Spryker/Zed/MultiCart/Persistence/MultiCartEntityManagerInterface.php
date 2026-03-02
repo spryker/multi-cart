@@ -9,17 +9,7 @@ namespace Spryker\Zed\MultiCart\Persistence;
 
 interface MultiCartEntityManagerInterface
 {
-    /**
-     * @param string $customerReference
-     *
-     * @return void
-     */
     public function resetQuoteDefaultFlagByCustomer(string $customerReference): void;
 
-    /**
-     * @param int $idQuote
-     *
-     * @return void
-     */
     public function setDefaultQuote(int $idQuote): void;
 }

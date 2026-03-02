@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\QuoteResponseTransfer;
 
 interface QuoteActivatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteActivationRequestTransfer $quoteActivationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function setDefaultQuote(QuoteActivationRequestTransfer $quoteActivationRequestTransfer): QuoteResponseTransfer;
 }

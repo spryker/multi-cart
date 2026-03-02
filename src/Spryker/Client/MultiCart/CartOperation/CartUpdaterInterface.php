@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface CartUpdaterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function updateQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer;
 
     /**
@@ -28,17 +23,7 @@ interface CartUpdaterInterface
      */
     public function setDefaultQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function clearQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function markQuoteAsDefault(QuoteTransfer $quoteTransfer): QuoteResponseTransfer;
 }

@@ -11,17 +11,7 @@ use Generated\Shared\Transfer\MessageTransfer;
 
 interface MultiCartToMessengerFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MessageTransfer $message
-     *
-     * @return void
-     */
     public function addInfoMessage(MessageTransfer $message): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\MessageTransfer $message
-     *
-     * @return void
-     */
     public function addSuccessMessage(MessageTransfer $message): void;
 }

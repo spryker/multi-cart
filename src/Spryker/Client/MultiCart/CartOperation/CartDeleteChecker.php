@@ -16,17 +16,11 @@ class CartDeleteChecker implements CartDeleteCheckerInterface
      */
     protected $multiCartStorage;
 
-    /**
-     * @param \Spryker\Client\MultiCart\Storage\MultiCartStorageInterface $multiCartStorage
-     */
     public function __construct(MultiCartStorageInterface $multiCartStorage)
     {
         $this->multiCartStorage = $multiCartStorage;
     }
 
-    /**
-     * @return bool
-     */
     public function isQuoteDeletable(): bool
     {
         return $this->multiCartStorage->getQuoteCollection()->getQuotes()->count() > 1;

@@ -31,11 +31,6 @@ class QuoteWriter implements QuoteWriterInterface
      */
     protected $messengerFacade;
 
-    /**
-     * @param \Spryker\Zed\MultiCart\Persistence\MultiCartRepositoryInterface $multiCartRepository
-     * @param \Spryker\Zed\MultiCart\Persistence\MultiCartEntityManagerInterface $multiCartEntityManager
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToMessengerFacadeInterface $messengerFacade
-     */
     public function __construct(
         MultiCartRepositoryInterface $multiCartRepository,
         MultiCartEntityManagerInterface $multiCartEntityManager,
@@ -46,11 +41,6 @@ class QuoteWriter implements QuoteWriterInterface
         $this->messengerFacade = $messengerFacade;
     }
 
-    /**
-     * @param string $customerReference
-     *
-     * @return void
-     */
     public function initDefaultCustomerQuote(string $customerReference): void
     {
         $customerQuoteData = $this->multiCartRepository->findCustomerQuoteData($customerReference);
@@ -65,11 +55,6 @@ class QuoteWriter implements QuoteWriterInterface
         }
     }
 
-    /**
-     * @param array $customerQuoteData
-     *
-     * @return bool
-     */
     protected function hasActiveQuote(array $customerQuoteData): bool
     {
         $numberOfCustomerQuoteDataRows = count($customerQuoteData);
@@ -82,11 +67,6 @@ class QuoteWriter implements QuoteWriterInterface
         return false;
     }
 
-    /**
-     * @param string $quoteName
-     *
-     * @return void
-     */
     protected function addSuccessMessage(string $quoteName): void
     {
         $messageTransfer = new MessageTransfer();

@@ -34,10 +34,6 @@ class MultiCartMessenger implements MultiCartMessengerInterface
      */
     protected $messengerFacade;
 
-    /**
-     * @param \Spryker\Zed\MultiCart\Persistence\MultiCartRepositoryInterface $multiCartRepository
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToMessengerFacadeInterface $messengerFacade
-     */
     public function __construct(
         MultiCartRepositoryInterface $multiCartRepository,
         MultiCartToMessengerFacadeInterface $messengerFacade
@@ -46,11 +42,6 @@ class MultiCartMessenger implements MultiCartMessengerInterface
         $this->messengerFacade = $messengerFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     public function addDefaultQuoteChangedMessage(QuoteTransfer $quoteTransfer): void
     {
         if (!$quoteTransfer->getCustomer()) {
@@ -77,11 +68,6 @@ class MultiCartMessenger implements MultiCartMessengerInterface
         $this->messengerFacade->addInfoMessage($messageTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     protected function isQuoteChangedByQuoteOwner(QuoteTransfer $quoteTransfer): bool
     {
         return $quoteTransfer->getCustomerOrFail()->getCustomerReference() === $quoteTransfer->getCustomerReference();

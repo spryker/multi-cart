@@ -20,13 +20,7 @@ interface MultiCartToZedRequestClientInterface
      */
     public function call(string $url, TransferInterface $object, ?array $requestOptions = null): TransferInterface;
 
-    /**
-     * @return void
-     */
     public function addFlashMessagesFromLastZedRequest(): void;
 
-    /**
-     * @return void
-     */
     public function addResponseMessagesToMessenger(): void;
 }

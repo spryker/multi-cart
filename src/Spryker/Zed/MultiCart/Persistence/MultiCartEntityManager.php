@@ -15,11 +15,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class MultiCartEntityManager extends AbstractEntityManager implements MultiCartEntityManagerInterface
 {
-    /**
-     * @param string $customerReference
-     *
-     * @return void
-     */
     public function resetQuoteDefaultFlagByCustomer(string $customerReference): void
     {
         $this->getFactory()
@@ -28,11 +23,6 @@ class MultiCartEntityManager extends AbstractEntityManager implements MultiCartE
             ->update([ucfirst(SpyQuoteEntityTransfer::IS_DEFAULT) => false]);
     }
 
-    /**
-     * @param int $idQuote
-     *
-     * @return void
-     */
     public function setDefaultQuote(int $idQuote): void
     {
         $this->getFactory()

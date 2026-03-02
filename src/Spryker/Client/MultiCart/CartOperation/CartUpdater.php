@@ -46,13 +46,6 @@ class CartUpdater implements CartUpdaterInterface
      */
     protected $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\MultiCart\Zed\MultiCartZedStubInterface $multiCartZedStub
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToPersistentCartClientInterface $persistentCartClient
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToQuoteClientInterface $quoteClient
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToCustomerClientInterface $customerClient
-     * @param \Spryker\Client\MultiCart\Dependency\Client\MultiCartToZedRequestClientInterface $zedRequestClient
-     */
     public function __construct(
         MultiCartZedStubInterface $multiCartZedStub,
         MultiCartToPersistentCartClientInterface $persistentCartClient,
@@ -67,11 +60,6 @@ class CartUpdater implements CartUpdaterInterface
         $this->zedRequestClient = $zedRequestClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function updateQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer
     {
         $quoteTransfer->requireIdQuote();
@@ -110,11 +98,6 @@ class CartUpdater implements CartUpdaterInterface
         return $quoteResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function clearQuote(QuoteTransfer $quoteTransfer): QuoteResponseTransfer
     {
         $quoteTransfer->setCustomer(
@@ -129,11 +112,6 @@ class CartUpdater implements CartUpdaterInterface
         return $this->persistentCartClient->updateQuote($quoteUpdateRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function markQuoteAsDefault(QuoteTransfer $quoteTransfer): QuoteResponseTransfer
     {
         $quoteTransfer->setIsDefault(true);
@@ -143,11 +121,6 @@ class CartUpdater implements CartUpdaterInterface
         return $quoteResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteUpdateRequestTransfer
-     */
     protected function createQuoteUpdateRequest(QuoteTransfer $quoteTransfer): QuoteUpdateRequestTransfer
     {
         $quoteUpdateRequestTransfer = new QuoteUpdateRequestTransfer();

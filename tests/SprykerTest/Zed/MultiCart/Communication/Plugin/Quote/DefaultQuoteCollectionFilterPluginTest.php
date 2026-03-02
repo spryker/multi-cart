@@ -38,9 +38,6 @@ class DefaultQuoteCollectionFilterPluginTest extends Unit
      */
     protected MultiCartCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldKeepOnlyDefaultQuote(): void
     {
         // Arrange
@@ -61,9 +58,6 @@ class DefaultQuoteCollectionFilterPluginTest extends Unit
         $this->assertSame(static::DEFAULT_QUOTE_NAME, $quoteCollectionTransfer->getQuotes()->getIterator()->current()->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldNotApplyIsDefaultFilter(): void
     {
         // Arrange
@@ -83,9 +77,6 @@ class DefaultQuoteCollectionFilterPluginTest extends Unit
         $this->assertCount(3, $quoteCollectionTransfer->getQuotes());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldReturnEmptyCollectionIfQuoteCollectionDoesNotContainDefaultQuote(): void
     {
         // Arrange

@@ -14,18 +14,10 @@ use Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToPersistentCartFacadeInter
 
 class CartReorderProvider implements CartReorderProviderInterface
 {
-    /**
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToPersistentCartFacadeInterface $persistentCartFacade
-     */
     public function __construct(protected MultiCartToPersistentCartFacadeInterface $persistentCartFacade)
     {
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderRequestTransfer $cartReorderRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function getQuoteForCartReorder(CartReorderRequestTransfer $cartReorderRequestTransfer): QuoteTransfer
     {
         $customerTransfer = (new CustomerTransfer())
@@ -34,11 +26,6 @@ class CartReorderProvider implements CartReorderProviderInterface
         return $this->createCustomerQuote($customerTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CustomerTransfer $customerTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createCustomerQuote(CustomerTransfer $customerTransfer): QuoteTransfer
     {
         $quoteTransfer = (new QuoteTransfer())

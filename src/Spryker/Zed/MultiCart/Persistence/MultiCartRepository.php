@@ -18,11 +18,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class MultiCartRepository extends AbstractRepository implements MultiCartRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return array
-     */
     public function findSimilarCustomerQuoteNames(QuoteTransfer $quoteTransfer): array
     {
         $customerReference = $quoteTransfer->getCustomer()->getCustomerReference();
@@ -44,11 +39,6 @@ class MultiCartRepository extends AbstractRepository implements MultiCartReposit
         return $quoteNames->toArray();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return bool
-     */
     public function checkQuoteNameAvailability(QuoteTransfer $quoteTransfer): bool
     {
         $customerReference = $quoteTransfer->getCustomer()->getCustomerReference();
@@ -69,11 +59,6 @@ class MultiCartRepository extends AbstractRepository implements MultiCartReposit
         return !$this->buildQueryFromCriteria($quoteQuery, $filterTransfer)->count();
     }
 
-    /**
-     * @param string $customerReference
-     *
-     * @return array
-     */
     public function findCustomerQuoteData(string $customerReference): array
     {
         $quoteQuery = $this->getFactory()
@@ -92,12 +77,6 @@ class MultiCartRepository extends AbstractRepository implements MultiCartReposit
         return $quotes->toArray();
     }
 
-    /**
-     * @param int $idQuote
-     * @param string $customerReference
-     *
-     * @return bool
-     */
     public function isQuoteDefault(int $idQuote, string $customerReference): bool
     {
         return $this->getFactory()

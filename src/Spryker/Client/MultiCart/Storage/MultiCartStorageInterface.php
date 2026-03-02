@@ -12,22 +12,9 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface MultiCartStorageInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteCollectionTransfer $quoteCollectionTransfer
-     *
-     * @return void
-     */
     public function setQuoteCollection(QuoteCollectionTransfer $quoteCollectionTransfer): void;
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
-     */
     public function getQuoteCollection(): QuoteCollectionTransfer;
 
-    /**
-     * @param int $idQuote
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer|null
-     */
     public function findQuoteById(int $idQuote): ?QuoteTransfer;
 }

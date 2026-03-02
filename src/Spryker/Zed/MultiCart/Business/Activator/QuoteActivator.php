@@ -30,10 +30,6 @@ class QuoteActivator implements QuoteActivatorInterface
      */
     protected $messengerFacade;
 
-    /**
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToQuoteFacadeInterface $quoteFacade
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToMessengerFacadeInterface $messengerFacade
-     */
     public function __construct(
         MultiCartToQuoteFacadeInterface $quoteFacade,
         MultiCartToMessengerFacadeInterface $messengerFacade
@@ -42,21 +38,11 @@ class QuoteActivator implements QuoteActivatorInterface
         $this->messengerFacade = $messengerFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteActivationRequestTransfer $quoteActivationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     public function setDefaultQuote(QuoteActivationRequestTransfer $quoteActivationRequestTransfer): QuoteResponseTransfer
     {
         return $this->executeSetDefaultQuoteTransaction($quoteActivationRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteActivationRequestTransfer $quoteActivationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteResponseTransfer
-     */
     protected function executeSetDefaultQuoteTransaction(QuoteActivationRequestTransfer $quoteActivationRequestTransfer): QuoteResponseTransfer
     {
         $quoteResponseTransfer = $this->quoteFacade->findQuoteById($quoteActivationRequestTransfer->getIdQuote());

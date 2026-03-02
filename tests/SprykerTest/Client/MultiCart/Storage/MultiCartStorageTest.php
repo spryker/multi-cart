@@ -34,9 +34,6 @@ class MultiCartStorageTest extends Unit
      */
     protected MultiCartClientTester $tester;
 
-    /**
-     * @return void
-     */
     public function testSetQuoteCollectionSetsQuoteKeyWithCurrentStorePrefixIfDynamicStoreIsEnabled(): void
     {
         //Arrange

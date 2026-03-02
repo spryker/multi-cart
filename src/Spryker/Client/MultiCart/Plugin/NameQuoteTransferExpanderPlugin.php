@@ -39,9 +39,6 @@ class NameQuoteTransferExpanderPlugin extends AbstractPlugin implements QuoteTra
         return $quoteTransfer;
     }
 
-    /**
-     * @return string
-     */
     protected function getCustomerQuoteDefaultName(): string
     {
         return $this->getFactory()
@@ -49,9 +46,6 @@ class NameQuoteTransferExpanderPlugin extends AbstractPlugin implements QuoteTra
             ->getCustomerQuoteDefaultName();
     }
 
-    /**
-     * @return string
-     */
     protected function getGuestQuoteDefaultName(): string
     {
         return $this->getFactory()

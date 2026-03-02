@@ -118,13 +118,6 @@ class AddDefaultQuoteChangedMessageTest extends Unit
         ];
     }
 
-    /**
-     * @param string $quoteOwnerCustomerReference
-     * @param bool $isDefaultQuote
-     * @param string $currentUserCustomerReference
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function setupQuote(string $quoteOwnerCustomerReference, bool $isDefaultQuote, string $currentUserCustomerReference): QuoteTransfer
     {
         $quoteTransfer = $this->tester->havePersistentQuote([
@@ -139,11 +132,6 @@ class AddDefaultQuoteChangedMessageTest extends Unit
         return $quoteTransfer;
     }
 
-    /**
-     * @param string $customerReference
-     *
-     * @return \Generated\Shared\Transfer\CustomerTransfer
-     */
     protected function buildCustomerTransfer(string $customerReference): CustomerTransfer
     {
         return (new CustomerBuilder())->build()

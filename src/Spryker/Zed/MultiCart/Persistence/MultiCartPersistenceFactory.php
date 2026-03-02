@@ -17,9 +17,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
  */
 class MultiCartPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\Quote\Persistence\SpyQuoteQuery
-     */
     public function createQuoteQuery(): SpyQuoteQuery
     {
         return SpyQuoteQuery::create();

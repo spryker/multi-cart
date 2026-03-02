@@ -82,9 +82,6 @@ class ReadQuoteCollectionTest extends Unit
      */
     protected $customer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -93,9 +90,6 @@ class ReadQuoteCollectionTest extends Unit
         $this->multiCartFacade = $this->tester->getFacade();
     }
 
-    /**
-     * @return void
-     */
     public function testReadCartsCollectionFromDatabaseByCustomer(): void
     {
         $this->initWithResult();
@@ -109,9 +103,6 @@ class ReadQuoteCollectionTest extends Unit
         $this->assertEquals($expectedTransfer->getQuotes(), $quoteResponseTransfer->getQuotes());
     }
 
-    /**
-     * @return void
-     */
     public function testReadEmptyCartsCollectionFromDatabaseByCustomer(): void
     {
         $this->initWithoutResult();
@@ -153,9 +144,6 @@ class ReadQuoteCollectionTest extends Unit
         return $mock;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
-     */
     protected function getQuotesCollectionTransfer(): QuoteCollectionTransfer
     {
         $quoteCollectionTransfer = (new QuoteCollectionTransfer())
@@ -166,9 +154,6 @@ class ReadQuoteCollectionTest extends Unit
         return $quoteCollectionTransfer;
     }
 
-    /**
-     * @return void
-     */
     protected function initWithResult(): void
     {
         $builder = $this->getMockBuilder(MultiCartBusinessFactory::class);
@@ -185,9 +170,6 @@ class ReadQuoteCollectionTest extends Unit
         $this->multiCartFacade->setFactory($this->multiCartBusinessFactory);
     }
 
-    /**
-     * @return void
-     */
     protected function initWithoutResult(): void
     {
         $builder = $this->getMockBuilder(MultiCartBusinessFactory::class);
@@ -204,9 +186,6 @@ class ReadQuoteCollectionTest extends Unit
         $this->multiCartFacade->setFactory($this->multiCartBusinessFactory);
     }
 
-    /**
-     * @return \Orm\Zed\Customer\Persistence\SpyCustomer
-     */
     protected function createCustomer(): SpyCustomer
     {
         $customerEntity = SpyCustomerQuery::create()->findOneByCustomerReference(static::CUSTOMER_DATA['customer_reference']);

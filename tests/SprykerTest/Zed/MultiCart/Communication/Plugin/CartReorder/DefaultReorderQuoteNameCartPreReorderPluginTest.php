@@ -44,9 +44,6 @@ class DefaultReorderQuoteNameCartPreReorderPluginTest extends Unit
      */
     protected MultiCartCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldSetDefaultQuoteNameForReorder(): void
     {
         // Arrange
@@ -64,9 +61,6 @@ class DefaultReorderQuoteNameCartPreReorderPluginTest extends Unit
         $this->assertSame('Cart from order DE--123', $cartReorderTransfer->getQuoteOrFail()->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldThrowsNullValueExceptionWhenQuoteIsNotProvided(): void
     {
         // Arrange
@@ -83,9 +77,6 @@ class DefaultReorderQuoteNameCartPreReorderPluginTest extends Unit
         (new DefaultReorderQuoteNameCartPreReorderPlugin())->preReorder($cartReorderRequestTransfer, $cartReorderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testShouldThrowsNullValueExceptionWhenOrderReferenceIsNotProvided(): void
     {
         // Arrange

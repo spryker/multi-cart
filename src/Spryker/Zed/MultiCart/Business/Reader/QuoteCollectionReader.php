@@ -18,19 +18,11 @@ class QuoteCollectionReader implements QuoteCollectionReaderInterface
      */
     protected $quoteFacade;
 
-    /**
-     * @param \Spryker\Zed\MultiCart\Dependency\Facade\MultiCartToQuoteFacadeInterface $quoteFacade
-     */
     public function __construct(MultiCartToQuoteFacadeInterface $quoteFacade)
     {
         $this->quoteFacade = $quoteFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteCollectionTransfer
-     */
     public function getQuoteCollectionByCriteria(QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer): QuoteCollectionTransfer
     {
         return $this->quoteFacade->getQuoteCollection($quoteCriteriaFilterTransfer);

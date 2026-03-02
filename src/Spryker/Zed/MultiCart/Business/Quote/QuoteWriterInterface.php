@@ -9,10 +9,5 @@ namespace Spryker\Zed\MultiCart\Business\Quote;
 
 interface QuoteWriterInterface
 {
-    /**
-     * @param string $customerReference
-     *
-     * @return void
-     */
     public function initDefaultCustomerQuote(string $customerReference): void;
 }
