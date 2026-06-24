@@ -12,26 +12,36 @@ use Spryker\Shared\Kernel\AbstractSharedConfig;
 class MultiCartConfig extends AbstractSharedConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const QUOTE_NAME_DEFAULT_GUEST = 'Guest shopping cart';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const QUOTE_NAME_DEFAULT_CUSTOMER = 'Shopping cart';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const QUOTE_NAME_DUPLICATE = '%s Copied At %s';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const QUOTE_NAME_REORDER = 'Cart from order %s';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const QUOTE_NAME_QUICK_ORDER = 'Quick order %s';
