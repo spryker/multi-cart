@@ -8,6 +8,8 @@
 namespace Spryker\Zed\MultiCart\Persistence;
 
 use Generated\Shared\Transfer\SpyQuoteEntityTransfer;
+use Orm\Zed\Quote\Persistence\Map\SpyQuoteTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 
 /**
@@ -17,9 +19,21 @@ class MultiCartEntityManager extends AbstractEntityManager implements MultiCartE
 {
     public function resetQuoteDefaultFlagByCustomer(string $customerReference): void
     {
-        $this->getFactory()
+        $idsQuote = $this->getFactory()
             ->createQuoteQuery()
             ->filterByCustomerReference($customerReference)
+            ->filterByIsDefault(true)
+            ->select(SpyQuoteTableMap::COL_ID_QUOTE)
+            ->find()
+            ->toArray();
+
+        if (!$idsQuote) {
+            return;
+        }
+
+        $this->getFactory()
+            ->createQuoteQuery()
+            ->filterByIdQuote($idsQuote, Criteria::IN)
             ->update([ucfirst(SpyQuoteEntityTransfer::IS_DEFAULT) => false]);
     }
 

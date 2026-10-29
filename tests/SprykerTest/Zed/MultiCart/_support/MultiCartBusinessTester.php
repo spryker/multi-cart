@@ -8,6 +8,7 @@
 namespace SprykerTest\Zed\MultiCart;
 
 use Codeception\Actor;
+use Orm\Zed\Quote\Persistence\SpyQuoteQuery;
 
 /**
  * @method void wantToTest($text)
@@ -27,4 +28,21 @@ use Codeception\Actor;
 class MultiCartBusinessTester extends Actor
 {
     use _generated\MultiCartBusinessTesterActions;
+
+    public function setQuoteDefaultFlag(int $idQuote, bool $isDefault): void
+    {
+        SpyQuoteQuery::create()
+            ->filterByIdQuote($idQuote)
+            ->findOne()
+            ->setIsDefault($isDefault)
+            ->save();
+    }
+
+    public function isQuoteDefault(int $idQuote): bool
+    {
+        return (bool)SpyQuoteQuery::create()
+            ->filterByIdQuote($idQuote)
+            ->findOne()
+            ->getIsDefault();
+    }
 }
