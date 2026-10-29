@@ -35,6 +35,11 @@ class MultiCartEntityManager extends AbstractEntityManager implements MultiCartE
             ->createQuoteQuery()
             ->filterByIdQuote($idsQuote, Criteria::IN)
             ->update([ucfirst(SpyQuoteEntityTransfer::IS_DEFAULT) => false]);
+
+        // Propel keeps the instance pool after an update by primary key; QuoteEntityManager::saveQuote()
+        // would otherwise read the stale is_default.
+        SpyQuoteTableMap::clearInstancePool();
+        SpyQuoteTableMap::clearRelatedInstancePool();
     }
 
     public function setDefaultQuote(int $idQuote): void
